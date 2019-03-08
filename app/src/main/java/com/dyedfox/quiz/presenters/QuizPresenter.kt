@@ -1,6 +1,7 @@
 package com.dyedfox.quiz.presenters
 
 import com.dyedfox.quiz.QuizActivity
+import com.dyedfox.quiz.data.entity.question.Answer
 import com.dyedfox.quiz.data.entity.question.Question
 import com.dyedfox.quiz.useCases.QuizUseCase
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +33,16 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
 
     private fun initFields(lastQuestionId: Int) {
         activity.setTextOfQuestion(listOfQuizQuestio[lastQuestionId].text)
+        activity.setAnswersOfQuestion(listOfQuizQuestio[lastQuestionId].answers)
+        activity.setImageOfQuestion(listOfQuizQuestio[lastQuestionId].image.url)
     }
+
+
+    fun doWhenButton1isClicked() {
+        activity.cleanView()
+        // do whatever business requires
+    }
+
 
 
 }

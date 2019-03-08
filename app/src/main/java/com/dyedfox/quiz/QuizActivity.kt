@@ -1,8 +1,10 @@
 package com.dyedfox.quiz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dyedfox.quiz.data.entity.question.Answer
@@ -15,11 +17,11 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
+        supportActionBar?.title = "Questions"
         quizPresenter.getQuiz(intent.extras.getLong("id"))
 
-        next_question_button.setOnClickListener{
-            quizPresenter.doWhenButton1isClicked()
+            next_question_button.setOnClickListener{
+            quizPresenter.doNextButton1isClicked()
         }
 
     }
@@ -42,15 +44,15 @@ class QuizActivity : AppCompatActivity() {
         Glide
             .with(this)
             .load(name)
-            .apply(RequestOptions().override(600, 300).centerCrop())
+            .apply(RequestOptions().override(600, 600).centerCrop())
             .into(question_image)
     }
 
     fun  cleanView()
     {
-        text_question.text = "Question"
+        setTextOfQuestion("Question")
         answers_radio_group.removeAllViews()
-
+        setImageOfQuestion("")
     }
 
 

@@ -1,9 +1,11 @@
 package com.dyedfox.quiz.presenters
 
+import android.content.Intent
+import com.dyedfox.quiz.MainActivity
 import com.dyedfox.quiz.QuizActivity
-import com.dyedfox.quiz.data.entity.question.Answer
 import com.dyedfox.quiz.data.entity.question.Question
 import com.dyedfox.quiz.useCases.QuizUseCase
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -13,6 +15,8 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
     private val quizUseCase = QuizUseCase(activity)
 
     private val listOfQuizQuestio = ArrayList<Question>()
+
+    private var indexOfQuestion = 0;
 
     fun getQuiz(id : Long) {
         launch {
@@ -24,6 +28,7 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
                     withContext(Dispatchers.Main)
                     {
                         initFields(it.lastQuestionId)
+                        indexOfQuestion =it.lastQuestionId
                     }
                 }
             }
@@ -37,9 +42,28 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
         activity.setImageOfQuestion(listOfQuizQuestio[lastQuestionId].image.url)
     }
 
+    private fun goToMainView()
+    {
+        val intent = Intent(activity, MainActivity::class.java)
+        intent.putExtra("id", indexOfQuestion)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        activity.startActivity(intent)
+    }
 
-    fun doWhenButton1isClicked() {
+
+
+    fun doNextButton1isClicked() {
         activity.cleanView()
+        ++indexOfQuestion
+        if(indexOfQuestion<=listOfQuizQuestio.size-1) {
+            if (indexOfQuestion == listOfQuizQuestio.size-1)
+                activity.next_question_button.text = "FINISH"
+            initFields(indexOfQuestion)
+
+
+            }
+        else
+            goToMainView()
         // do whatever business requires
     }
 

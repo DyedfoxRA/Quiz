@@ -4,6 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Update
+import com.dyedfox.quiz.data.entity.question.Question
 import com.dyedfox.quiz.data.entity.question.QuestionResponse
 import com.dyedfox.quiz.data.entity.quiz.Item
 import kotlinx.coroutines.Deferred
@@ -22,4 +24,10 @@ interface Dao {
 
     @Insert(onConflict = REPLACE)
     fun saveItem(item: List<Item>)
+
+    @Update
+    fun updateQuestionResponse(question: Question)
+
+    @Update
+    fun updateItem(item : List<Item>)
 }

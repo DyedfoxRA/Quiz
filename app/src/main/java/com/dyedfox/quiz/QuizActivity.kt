@@ -1,11 +1,8 @@
 package com.dyedfox.quiz
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -23,7 +20,7 @@ class QuizActivity : AppCompatActivity() {
         quizPresenter.getQuiz(intent.extras.getLong("id"))
 
             next_question_button.setOnClickListener{
-            quizPresenter.doNextButton1isClicked()
+            quizPresenter.doNextIsClicked()
         }
 
     }
@@ -64,9 +61,10 @@ class QuizActivity : AppCompatActivity() {
 
     fun updateProgress(progress: Int)
     {
-        Log.e("progressBar",progress.toString())
+        
         quiz_progressBar.progress = progress
     }
+
 
 
 }

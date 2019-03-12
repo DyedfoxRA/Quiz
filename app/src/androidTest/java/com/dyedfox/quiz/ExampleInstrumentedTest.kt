@@ -1,6 +1,8 @@
 package com.dyedfox.quiz
 
 import androidx.test.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.runner.AndroidJUnit4
 
 import org.junit.Test
@@ -15,10 +17,18 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+
+
     @Test
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.dyedfox.quiz", appContext.packageName)
     }
+
+/*    @Test
+    fun aa()
+    {
+        onView(withId(R.id.title_quiz)).perform(setText())
+    }*/
 }

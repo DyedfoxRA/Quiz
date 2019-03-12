@@ -40,6 +40,7 @@ class RecyclerViewQuizAdapter(val listOfItems: List<Item>, val context: Context)
         }
         holder.getImageOfQuiz().let {
             //.override(300, 200)
+
             var ro = RequestOptions()
                 .centerCrop()
                 .transforms( CenterCrop(),  RoundedCorners(16))

@@ -2,6 +2,7 @@ package com.dyedfox.quiz.useCases
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.dyedfox.quiz.data.entity.quiz.Item
 import com.dyedfox.quiz.data.entity.quiz.QuizResponse

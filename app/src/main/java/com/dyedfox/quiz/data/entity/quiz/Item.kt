@@ -1,5 +1,6 @@
 package com.dyedfox.quiz.data.entity.quiz
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
@@ -15,7 +16,7 @@ data class Item(
     var createdAt: String? = null,
     @PrimaryKey
     var id: Long? = null,
-    @Ignore
+    @Embedded(prefix = "photo_")
     var mainPhoto: MainPhoto? = null,
     var questions: Int? = null,
     var shareTitle: String? = null,

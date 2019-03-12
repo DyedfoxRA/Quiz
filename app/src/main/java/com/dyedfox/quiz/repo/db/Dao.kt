@@ -24,10 +24,10 @@ interface Dao {
 
     @Insert(onConflict = REPLACE)
     fun saveItem(item: List<Item>)
-/*
-    @Update
-    fun updateQuestionResponse(question: Question)
 
     @Update
-    fun updateItem(item : List<Item>)*/
+    fun updateQuestionResponse(questionResponse: QuestionResponse)
+
+    @Update
+    fun updateItem(item : List<Item>)
 }

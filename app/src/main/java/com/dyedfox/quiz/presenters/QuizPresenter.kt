@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.function.IntToDoubleFunction
 
 class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
 
@@ -23,8 +22,8 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
     fun getQuiz(id : Long) {
         launch {
 
-
             quizUseCase.getQuizQuestion(id).let {
+
                 if (it != null) {
                     listOfQuizQuestio.addAll(it.questions!!)
                     withContext(Dispatchers.Main)
@@ -54,7 +53,7 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
 
 
 
-    fun doNextButton1isClicked() {
+    fun doNextIsClicked() {
         activity.cleanView()
         ++indexOfQuestion
         if(indexOfQuestion<=listOfQuizQuestio.size-1) {

@@ -16,7 +16,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <ImageView
             android:layout_width="0dp"
-            android:layout_height="200dp" app:srcCompat="@android:drawable/ic_lock_power_off"
+            android:layout_height="250dp" app:srcCompat="@android:drawable/ic_lock_power_off"
             android:id="@+id/question_image" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/text_question" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +34,21 @@
 
             android:id="@+id/answers_radio_group"
             android:layout_width="0dp" android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/question_image" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/next_question_button">
+            app:layout_constraintBottom_toTopOf="@+id/next_question_button" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/quiz_progressBar">
 
     </RadioGroup>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:progress="0"
+            android:layout_height="30dp"
+            android:id="@+id/quiz_progressBar" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/question_image" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

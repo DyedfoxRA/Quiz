@@ -1,6 +1,7 @@
 package com.dyedfox.quiz
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
@@ -53,6 +54,12 @@ class QuizActivity : AppCompatActivity() {
         setTextOfQuestion("Question")
         answers_radio_group.removeAllViews()
         setImageOfQuestion("")
+    }
+
+    fun updateProgress(progress: Int)
+    {
+        Log.e("progressBar",progress.toString())
+        quiz_progressBar.progress = progress
     }
 
 

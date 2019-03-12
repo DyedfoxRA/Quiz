@@ -1,6 +1,7 @@
 package com.dyedfox.quiz.presenters
 
 import android.content.Intent
+import android.util.Log
 import com.dyedfox.quiz.MainActivity
 import com.dyedfox.quiz.QuizActivity
 import com.dyedfox.quiz.data.entity.question.Question
@@ -9,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.function.IntToDoubleFunction
 
 class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
 
@@ -58,7 +60,12 @@ class QuizPresenter(val activity: QuizActivity) : BasePresenter() {
         if(indexOfQuestion<=listOfQuizQuestio.size-1) {
             if (indexOfQuestion == listOfQuizQuestio.size-1)
                 activity.next_question_button.text = "FINISH"
+
             initFields(indexOfQuestion)
+
+            activity.updateProgress(Math.round(indexOfQuestion/(listOfQuizQuestio.size-1)
+                .toDouble()*100)
+                .toInt())
 
 
             }

@@ -13,10 +13,6 @@ class RecyclerViewQuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
 
     private var image_quiz: ImageView = itemView.image_quiz
 
-    private var result_quiz: TextView = itemView.result_quiz
-
-    private var complete_quiz: TextView = itemView.complete_quiz
-
     private var card_view_quiz: CardView = itemView.card_view_quiz
 
     fun getCardViewOfQuiz() =  card_view_quiz
@@ -25,8 +21,5 @@ class RecyclerViewQuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
 
     fun getImageOfQuiz() = image_quiz
 
-    fun getResultOfQuiz() = result_quiz
-
-    fun getCompleteOfQuiz() = complete_quiz
 
 }

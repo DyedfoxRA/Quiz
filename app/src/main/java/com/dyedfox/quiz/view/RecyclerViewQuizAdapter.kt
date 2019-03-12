@@ -2,16 +2,16 @@ package com.dyedfox.quiz.view
 
 import android.content.Context
 import android.content.Intent
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dyedfox.quiz.data.entity.quiz.Item
-import com.dyedfox.quiz.data.entity.quiz.QuizResponse
-import android.view.LayoutInflater
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dyedfox.quiz.QuizActivity
 import com.dyedfox.quiz.R
-import kotlinx.android.synthetic.main.quiz_item.view.*
+import com.dyedfox.quiz.data.entity.quiz.Item
 
 
 class RecyclerViewQuizAdapter(val listOfItems: List<Item>, val context: Context) :
@@ -39,21 +39,16 @@ class RecyclerViewQuizAdapter(val listOfItems: List<Item>, val context: Context)
             it.text = item.title
         }
         holder.getImageOfQuiz().let {
-
+            //.override(300, 200)
+            var ro = RequestOptions()
+                .centerCrop()
+                .transforms( CenterCrop(),  RoundedCorners(16))
             Glide
                 .with(context)
                 .load(item.mainPhoto?.url)
-                .apply(RequestOptions().override(600, 200).centerCrop())
+                .apply(ro)
                 .into(it)
 
-        }
-
-        holder.getCompleteOfQuiz().let {
-            it.text = "80%"
-        }
-
-        holder.getResultOfQuiz().let {
-            it.text = "8/10"
         }
 
         holder.getCardViewOfQuiz().setOnClickListener {

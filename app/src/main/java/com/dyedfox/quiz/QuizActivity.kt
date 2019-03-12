@@ -2,6 +2,7 @@ package com.dyedfox.quiz
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
@@ -42,6 +43,9 @@ class QuizActivity : AppCompatActivity() {
 
     fun setImageOfQuestion(name: String)
     {
+        if(name.isEmpty())
+            question_image.visibility = View.GONE
+        else
         Glide
             .with(this)
             .load(name)

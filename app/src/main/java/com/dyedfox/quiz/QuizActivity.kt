@@ -45,12 +45,14 @@ class QuizActivity : AppCompatActivity() {
     {
         if(name.isEmpty())
             question_image.visibility = View.GONE
-        else
-        Glide
-            .with(this)
-            .load(name)
-            .apply(RequestOptions().override(600, 600).centerCrop())
-            .into(question_image)
+        else {
+            question_image.visibility = View.VISIBLE
+            Glide
+                .with(this)
+                .load(name)
+                .apply(RequestOptions().override(600, 600).centerCrop())
+                .into(question_image)
+        }
     }
 
     fun  cleanView()

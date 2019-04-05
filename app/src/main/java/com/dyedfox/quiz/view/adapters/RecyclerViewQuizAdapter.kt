@@ -5,6 +5,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.dyedfox.quiz.R
 import com.dyedfox.quiz.data.entity.quiz.Item
 import com.dyedfox.quiz.view.QuizActivity
@@ -44,14 +48,15 @@ class RecyclerViewQuizAdapter(val listOfItems: ArrayList<Item>, val context: Con
         holder.getImageOfQuiz().let {
             //.override(300, 200)
 
-            /* var ro = RequestOptions()
+             var ro = RequestOptions()
                  .centerCrop()
                  .transforms(CenterCrop(), RoundedCorners(16))
              Glide
                  .with(context)
                  .load(item.mainPhoto?.url)
                  .apply(ro)
-                 .into(it)*/
+                 .into(it)
+
 
         }
 

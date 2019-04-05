@@ -5,10 +5,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import androidx.room.Update
-import com.dyedfox.quiz.data.entity.question.Question
 import com.dyedfox.quiz.data.entity.question.QuestionResponse
 import com.dyedfox.quiz.data.entity.quiz.Item
-import kotlinx.coroutines.Deferred
 
 @Dao
 interface Dao {
@@ -29,5 +27,5 @@ interface Dao {
     fun updateQuestionResponse(questionResponse: QuestionResponse)
 
     @Update
-    fun updateItem(item : List<Item>)
+    fun updateItem(item: List<Item>)
 }

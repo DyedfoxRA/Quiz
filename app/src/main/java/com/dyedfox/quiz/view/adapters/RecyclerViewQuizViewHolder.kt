@@ -1,4 +1,4 @@
-package com.dyedfox.quiz.view
+package com.dyedfox.quiz.view.adapters
 
 import android.view.View
 import android.widget.ImageView
@@ -15,7 +15,7 @@ class RecyclerViewQuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
 
     private var card_view_quiz: CardView = itemView.card_view_quiz
 
-    fun getCardViewOfQuiz() =  card_view_quiz
+    fun getCardViewOfQuiz() = card_view_quiz
 
     fun getTitleOfQuiz() = title_quiz
 
